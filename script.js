@@ -13,6 +13,14 @@ function makeBoard(num) {
 
 makeBoard(16);
 
+// Color input field
+const colorPick = document.querySelector(".rgb");
+const colorLabel = document.querySelector(".colorwrap");
+colorPick.addEventListener("change", () => {
+    colorLabel.style.backgroundColor = colorPick.value;
+});
+
+// Enable/Disable drawing on grid
 let toggle;
 const buttons = document.querySelectorAll(".container > div");
 buttons.forEach((button) => {
@@ -29,3 +37,8 @@ const body = document.querySelector("body");
 body.addEventListener("mouseup", () => {
     toggle = false;
 })
+
+body.addEventListener("dragstart", () => {
+    toggle = false;
+})
+// end section
