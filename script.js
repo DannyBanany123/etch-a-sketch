@@ -103,10 +103,19 @@ function rainbowEnable() {
     divs.forEach((div) => {
         div.addEventListener("mousedown", () => {
             toggle = true;
-            div.style.backgroundColor = "blue";
+            div.style.backgroundColor = randomColor();
         });
         div.addEventListener("mouseover", () => {
-            if (toggle) div.style.backgroundColor = "blue";
+            if (toggle) div.style.backgroundColor = randomColor();
         })
     });
+}
+
+// Generate random rgb value
+function randomColor() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    let color = "rgb(" + r + "," + g + "," + b + ")";
+    return color;
 }
