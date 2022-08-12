@@ -34,9 +34,11 @@ body {
 }
 
 #box {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: white;
-    border: 1px solid black;
+}
+
+.animate {
+    background-color: black;
 }
