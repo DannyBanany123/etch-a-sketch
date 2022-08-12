@@ -1,7 +1,6 @@
 const container = document.querySelector(".container");
 let toggle;
 let colorOn = true;
-let rainbowOn = false;
 
 const colorMode = document.querySelector(".color-mode");
 colorMode.setAttribute("id", "animate");
@@ -10,7 +9,6 @@ const erase = document.querySelector(".eraser");
 
 colorMode.addEventListener("click", () => {
     colorOn = true;
-    rainbowOn = false;
     colorMode.setAttribute("id", "animate");
     erase.removeAttribute("id");
     rainbowMode.removeAttribute("id");
@@ -18,7 +16,6 @@ colorMode.addEventListener("click", () => {
 });
 rainbowMode.addEventListener("click", () => {
     colorOn = false;
-    rainbowOn = true;
     rainbowMode.setAttribute("id", "animate");
     colorMode.removeAttribute("id");
     erase.removeAttribute("id");
@@ -26,7 +23,6 @@ rainbowMode.addEventListener("click", () => {
 });
 erase.addEventListener("click", () => {
     colorOn = false;
-    rainbowOn = false;
     erase.setAttribute("id", "animate");
     colorMode.removeAttribute("id");
     rainbowMode.removeAttribute("id");
