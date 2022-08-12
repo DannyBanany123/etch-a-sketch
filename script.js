@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
 let toggle;
 let colorOn = true;
+let rainbowOn = false;
+let eraseOn = false;
 
 const colorMode = document.querySelector(".color-mode");
 colorMode.setAttribute("id", "animate");
@@ -9,6 +11,8 @@ const erase = document.querySelector(".eraser");
 
 colorMode.addEventListener("click", () => {
     colorOn = true;
+    rainbowOn = false;
+    eraseOn = false;
     colorMode.setAttribute("id", "animate");
     erase.removeAttribute("id");
     rainbowMode.removeAttribute("id");
@@ -16,6 +20,8 @@ colorMode.addEventListener("click", () => {
 });
 rainbowMode.addEventListener("click", () => {
     colorOn = false;
+    rainbowOn = true;
+    eraseOn = false;
     rainbowMode.setAttribute("id", "animate");
     colorMode.removeAttribute("id");
     erase.removeAttribute("id");
@@ -23,6 +29,8 @@ rainbowMode.addEventListener("click", () => {
 });
 erase.addEventListener("click", () => {
     colorOn = false;
+    rainbowOn = false;
+    eraseOn = true;
     erase.setAttribute("id", "animate");
     colorMode.removeAttribute("id");
     rainbowMode.removeAttribute("id");
@@ -64,9 +72,15 @@ inputSize.addEventListener("change", () => {
             container.firstElementChild.remove();
         }
         makeBoard(inputSize.value);
-        enable(colorPick.value);
+        if (rainbowOn) {
+            rainbowEnable();
+        } else if (colorOn) {
+            enable(colorPick.value);
+        } else {
+            enable("white");
+        }
     } else {
-        alert("Size must be between 8 and 100.\nEnter a new number.");
+        alert("Input must be an integer between 8 and 100.\nEnter a new number.");
     }
 });
 
