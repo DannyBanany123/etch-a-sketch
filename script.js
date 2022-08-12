@@ -14,6 +14,7 @@ colorMode.addEventListener("click", () => {
     colorMode.setAttribute("id", "animate");
     erase.removeAttribute("id");
     rainbowMode.removeAttribute("id");
+    enable(colorPick.value)
 });
 rainbowMode.addEventListener("click", () => {
     colorOn = false;
