@@ -22,6 +22,7 @@ rainbowMode.addEventListener("click", () => {
     rainbowMode.setAttribute("id", "animate");
     colorMode.removeAttribute("id");
     erase.removeAttribute("id");
+    rainbowEnable();
 });
 erase.addEventListener("click", () => {
     colorOn = false;
@@ -93,5 +94,19 @@ function enable(color) {
         button.addEventListener("mouseover", () => {
             if (toggle) button.style.backgroundColor = color;
         });
+    });
+}
+
+// Enable rainbow mode
+function rainbowEnable() {
+    const divs = document.querySelectorAll("#box");
+    divs.forEach((div) => {
+        div.addEventListener("mousedown", () => {
+            toggle = true;
+            div.style.backgroundColor = "blue";
+        });
+        div.addEventListener("mouseover", () => {
+            if (toggle) div.style.backgroundColor = "blue";
+        })
     });
 }
