@@ -98,6 +98,7 @@ body {
     padding: 8px;
     width: 80px;
     text-align: center;
+    border-radius: 8px;
 }
 
 .container {
@@ -118,6 +119,6 @@ body {
     background-color: white;
 }
 
-.animate {
-    background-color: black;
+#animate {
+    background-color: gold;
 }
